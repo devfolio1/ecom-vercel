@@ -2,6 +2,7 @@ const express = require("express")
 const app = express()
 const path = require("path")
 const product = require("./routes/productRoute")
+require("dotenv").config({ path: "backend/config/config.env" });
 const user = require("./routes/userRoute")
 const order = require("./routes/orderRoute")
 const payment = require("./routes/paymentRoute");
@@ -12,9 +13,9 @@ const errorMiddleware = require("./middleware/error")
 
 // Config
 if (process.env.NODE_ENV !== "PRODUCTION") {
-    require("dotenv").config({ path: "backend/config/config.env" });
+  require("dotenv").config({ path: "backend/config/config.env" });
   }
-
+  
 app.use(express.json())
 app.use(cookieParser())
 app.use(bodyParser.urlencoded({ extended: true }));
