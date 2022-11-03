@@ -21,7 +21,7 @@ const categories = [
   "SmartPhones",
 ];
 
-const Products = () => {
+const Products = ({match}) => {
   const dispatch = useDispatch();
   
   const alert = useAlert();
@@ -41,8 +41,8 @@ const Products = () => {
     filteredProductsCount,
   } = useSelector((state) => state.products);
 
-//   const keyword = match.params.keyword;
-    const { keyword } = useParams();
+  const keyword = match.params.keyword;
+    // const { keyword } = useParams();
 
   const setCurrentPageNo = (e) => {
     setCurrentPage(e);
@@ -57,7 +57,9 @@ const Products = () => {
     if (error) {
       alert.error(error);
       dispatch(clearErrors());
+     
     }
+    console.log(keyword)
 
     dispatch(getProduct(keyword, currentPage, price, category, ratings));
   }, [dispatch, keyword, currentPage, price, category, ratings, alert, error]);

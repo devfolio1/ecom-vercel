@@ -1,6 +1,6 @@
 import React from "react";
 import { ReactNavbar } from "overlay-navbar";
-// import logo from "../../Images/logo.png";
+import logo from "../../../images/Profile.png";
 import { MdAccountCircle } from "react-icons/md";
 import { MdSearch } from "react-icons/md";
 import { MdAddShoppingCart } from "react-icons/md";
@@ -13,7 +13,7 @@ const Header = () => {
       navColor2="hsl(219, 48%, 8%)"
       burgerColor="#F8C471"
       burgerColorHover="#F8C471"
-      //   logo={logo}
+        logo={logo}
       logoWidth="250px"
       logoHoverColor="#F8C471"
       link1Text="Home"
