@@ -1,7 +1,6 @@
 import React, { Fragment, useEffect, useState } from "react";
 import "./Products.css";
 import { useSelector, useDispatch } from "react-redux";
-import { useParams } from "react-router-dom";
 import { clearErrors, getProduct } from "../../actions/productAction";
 import Loader from "../Layouts/Loader/Loader";
 import ProductCard from "../Home/ProductCard";
@@ -21,9 +20,9 @@ const categories = [
   "SmartPhones",
 ];
 
-const Products = ({match}) => {
+const Products = ({ match }) => {
   const dispatch = useDispatch();
-  
+  const keyword = match.params.keyword;
   const alert = useAlert();
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -41,9 +40,7 @@ const Products = ({match}) => {
     filteredProductsCount,
   } = useSelector((state) => state.products);
 
-  const keyword = match.params.keyword;
-    // const { keyword } = useParams();
-
+  
   const setCurrentPageNo = (e) => {
     setCurrentPage(e);
   };
@@ -54,12 +51,12 @@ const Products = ({match}) => {
   let count = filteredProductsCount;
 
   useEffect(() => {
+    
+    console.log(keyword)
     if (error) {
       alert.error(error);
       dispatch(clearErrors());
-     
     }
-    console.log(keyword)
 
     dispatch(getProduct(keyword, currentPage, price, category, ratings));
   }, [dispatch, keyword, currentPage, price, category, ratings, alert, error]);
@@ -88,7 +85,7 @@ const Products = ({match}) => {
               valueLabelDisplay="auto"
               aria-labelledby="range-slider"
               min={0}
-              max={250000}
+              max={25000}
             />
 
             <Typography>Categories</Typography>

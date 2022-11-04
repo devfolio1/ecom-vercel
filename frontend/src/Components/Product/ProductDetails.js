@@ -28,6 +28,7 @@ const ProductDetails = ({match}) => {
   const dispatch = useDispatch();
   const alert = useAlert();
   const { id } = useParams();
+
   const { product, loading, error } = useSelector(
     (state) => state.productDetails
   );
