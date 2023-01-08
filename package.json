@@ -2,11 +2,10 @@
   "name": "ecommerce-mern",
   "version": "1.0.0",
   "description": "ecommerce site using mern",
-  "main": "backend/server.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "backend/server.js",
-    "dev": "nodemon backend/server.js"
+    "start":"node server.js"
     
   },
   "author": "sohail tanveer",
